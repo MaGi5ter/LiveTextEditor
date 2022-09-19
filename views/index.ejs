@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEJ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-list">
+            <a>Tu będą PLIKI</a>
+        </div>
+    
+        <div class="text-place" id="text-place">
+            <textarea spellcheck="false" class="text-place-area" id="tecttarea" autofocus></textarea>
+        </div>
+    </div>
+
+    <script>
+        setInterval(function(){console.log(document.getElementById("tecttarea").value)},5000)
+    </script>
+</body>
+</html>

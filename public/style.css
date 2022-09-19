@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 97vh;
+    width:  97vw;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    background: grey;
+    min-height: 100%;
+    max-width: 85%;
+    display: flex;
+    padding: 10px;
+}
+
+.left-list {
+    background-color: rgb(184, 52, 96);
+    border: solid 1px;
+    width: 100px;
+    margin-right: 15px;
+    min-height: 100%;
+}
+
+.text-place {
+    background-color: rgb(53, 50, 50);
+    width: 100%;
+}
+
+.text-place-area {
+    background: rgb(43, 41, 41);
+    color: rgb(101, 101, 194);
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5px;
+    resize: none;
+    padding: 1px;
+    border: 0;
+    letter-spacing: 1px;
+    box-shadow: none;
+    caret-color: yellow;
+}
+
+textarea:focus {
+    box-shadow: none;
+}
