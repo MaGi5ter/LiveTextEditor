@@ -1,3 +1,3 @@
 # LiveTextEditor
 
-My attempt to create a Live Text Editor without any existing tutorials (ofc i use documentation etc.)
+My attempt to create a Live Text Editor without any  tutorials (ofc I use documentation etc.)
