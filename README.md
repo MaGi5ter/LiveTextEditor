@@ -6,7 +6,7 @@ TO DO:
 
 Setup node.js / express ✅
 
-Create html view ✅
+Create ejs view ✅
 
 Multiple Files at the left side
 
