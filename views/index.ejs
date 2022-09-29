@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEJ</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" integrity="sha512-VJ6+sp2E5rFQk05caiXXzQd1wBABpjEj1r5kMiLmGAAgwPItw1YpqsCCBtq8Yr1x6C49/mTpRdXtq8O2RcZhlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,18 @@
     </div>
 
     <script>
-        setInterval(function(){console.log(document.getElementById("tecttarea").value)},5000)
+        const socket = io()
+
+        var text_area_content = ""
+
+        setInterval(function(){
+            if(document.getElementById("tecttarea").value != text_area_content)
+            {
+                text_area_content = document.getElementById("tecttarea").value
+                socket.emit('text',text_area_content)
+                console.log(text_area_content)
+            }
+        },500)        
     </script>
 </body>
 </html>

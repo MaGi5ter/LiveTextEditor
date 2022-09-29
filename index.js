@@ -2,39 +2,45 @@ const express = require('express')
 const session = require('express-session')
 
 const app = express()
-const mysql = require('mysql')
-const config = require('./config.json')
 
 app.set('view engine', 'ejs')
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'))
 
-/*const db = mysql.createPool({
-    host : config.mysql[0],
-    user : config.mysql[1],
-    password : config.mysql[2],
-    database : config.mysql[3],
-    connectionLimit : 5,
-    acquireTimeout  : 8000,
-    timeout : 60000
-})*/
+//SOCKET.IO SETUP
 
-/*DONE*/ app.use(session({                                /*DONE*/ 
-/*DONE*/    secret: 'secret',                             /*DONE*/ 
-/*DONE*/    resave: true,                                 /*DONE*/ 
-/*DONE*/    saveUninitialized: true                       /*DONE*/ 
-/*DONE*/ }));                                             /*DONE*/ 
-/*DONE*/ app.use(express.urlencoded({ extended: true }))  /*DONE*/ 
+const PORT = 2137
+
+const server = app.listen(PORT, function () {
+    console.log(`Listening on port ${PORT}`);
+    console.log(`http://localhost:${PORT}`);
+});
+
+const socket = require("socket.io");
+const io = socket(server);
+
+//SOCKET.IO
+
+io.on("connection", function (socket) {
+    console.log("Made socket connection");
+    socket.on("text", (data) => {
+    })
+});
 
 
+
+
+
+
+
+
+
+app.use(session({                                
+    secret: 'secret',                            
+    resave: true,                                 
+    saveUninitialized: true                      
+}));                                             
+app.use(express.urlencoded({ extended: true }))  
 
 app.get('/', (req, res) => {
     res.render('index')
 })
-
-app.get('*', function(req, res){
-    res.send('what???');
-    console.log('awd')
-});
-
-app.listen(2137)
-console.log('port: 2137')
