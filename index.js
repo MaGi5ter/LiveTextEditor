@@ -20,19 +20,17 @@ const io = socket(server);
 
 //SOCKET.IO
 
+var text_content = ""
+
 io.on("connection", function (socket) {
-    console.log("Made socket connection");
+    socket.emit('new',text_content)
+
     socket.on("text", (data) => {
+        text_content = data
+
+        socket.broadcast.emit('new',text_content)
     })
 });
-
-
-
-
-
-
-
-
 
 app.use(session({                                
     secret: 'secret',                            
