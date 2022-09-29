@@ -10,6 +10,6 @@ Create ejs view ✅
 
 Multiple Files at the left side
 
-add socket io to, make it wroking
+add socket io to, make it working ✅
 
 saving files in cookies
