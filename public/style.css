@@ -48,3 +48,33 @@ body {
 textarea:focus {
     box-shadow: none;
 }
+
+.rooms {
+    margin: 8px;
+    max-width: 75px;
+    height: 75px;
+    background: rgb(114, 30, 58);
+    text-align: center;
+    color: white;
+    line-height: 37px;
+    word-wrap: break-word;
+}
+
+.rooms:hover{
+    border: white solid 2px;
+}
+
+.rooms-1 {
+    margin: 8px;
+    max-width: 75px;
+    height: 35px;
+    background: rgb(114, 30, 58);
+    text-align: center;
+    color: white;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+
+.rooms-1:hover{
+    border: white solid 2px;
+}

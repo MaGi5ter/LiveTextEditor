@@ -1,44 +1,41 @@
 const express = require('express')
 const session = require('express-session')
 
+const config = require('./config.json')
+const PORT = 1337
+
+//APP SETUP
 const app = express()
 
+app.use(express.json())
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true}))
 app.use(express.static(__dirname + '/public'))
-
-//SOCKET.IO SETUP
-
-const PORT = 2137
 
 const server = app.listen(PORT, function () {
     console.log(`Listening on port ${PORT}`);
     console.log(`http://localhost:${PORT}`);
 });
 
-const socket = require("socket.io");
-const io = socket(server);
+//MYSQL
+const db = require('./mysql')
 
 //SOCKET.IO
+const socket_cod = require('./socket.js')
+socket_cod(server)
 
-var text_content = ""
+//SESSION
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(session({
+    secret: config.express_session_secret,
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
 
-io.on("connection", function (socket) {
-    socket.emit('new',text_content)
+//ROUTES
+const loginRoute = require("./routes/login")
+app.use('/',loginRoute)
 
-    socket.on("text", (data) => {
-        text_content = data
-
-        socket.broadcast.emit('new',text_content)
-    })
-});
-
-app.use(session({                                
-    secret: 'secret',                            
-    resave: true,                                 
-    saveUninitialized: true                      
-}));                                             
-app.use(express.urlencoded({ extended: true }))  
-
-app.get('/', (req, res) => {
-    res.render('index')
-})
+const textRoute = require("./routes/text")
+app.use('/text',textRoute)

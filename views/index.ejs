@@ -2,41 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Done by #0411">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEJ</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" integrity="sha512-VJ6+sp2E5rFQk05caiXXzQd1wBABpjEj1r5kMiLmGAAgwPItw1YpqsCCBtq8Yr1x6C49/mTpRdXtq8O2RcZhlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Document</title>
+
+    <style>
+        body {
+            background: rgb(80, 77, 77);
+        }
+
+        .container {
+            background: grey;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            height: 150px;
+            padding-top: 50px;
+        }
+
+
+    </style>
+
 </head>
 <body>
+
     <div class="container">
-        <div class="left-list">
-            <a>Tu będą PLIKI</a>
-        </div>
-    
-        <div class="text-place" id="text-place">
-            <textarea spellcheck="false" class="text-place-area" id="tecttarea" autofocus></textarea>
-        </div>
+        <form action="/" method="post">
+            <label for="fname">Nickname</label><br>
+            <input type="text" id="login" name="login"><br>
+            <input type="submit" value="Submit">
+          </form> 
     </div>
-
-    <script>
-        const socket = io()
-
-        var text_area_content = ""
-
-        setInterval(function(){
-            if(document.getElementById("tecttarea").value != text_area_content)
-            {
-                text_area_content = document.getElementById("tecttarea").value
-                socket.emit('text',text_area_content)
-                console.log(text_area_content)
-            }
-        },50)    
-        
-        socket.on("new", function (data) {
-            text_area_content = data
-            document.getElementById("tecttarea").value = data;
-        });
-    </script>
 </body>
 </html>
