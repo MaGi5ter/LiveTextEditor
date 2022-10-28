@@ -8,7 +8,7 @@ router
 
         if(ssn.username)
         {
-            res.render('text-ed')
+            res.render('main')
         }
         else
         {

@@ -8,8 +8,7 @@ router
 
         if(ssn.username)
         {
-            console.log(ssn)
-            res.redirect('/text')
+            res.redirect('/main')
         }
         else
         {
@@ -20,8 +19,7 @@ router
     .post((req,res) => {
         ssn = req.session
         ssn.username = req.body.login
-
-        res.redirect('/text');
+        res.redirect('/main');
     })
 
 module.exports = router

@@ -75,6 +75,15 @@ textarea:focus {
     word-wrap: break-word;
 }
 
+.rooms-2 {
+    margin: 8px;
+    min-width: 5px;
+    height: 5px;
+    background: rgb(114, 30, 58);
+    line-height: 8px;
+    border: rgb(202, 157, 191) solid 2px;
+}
+
 .rooms-1:hover{
     border: white solid 2px;
 }

@@ -38,4 +38,4 @@ const loginRoute = require("./routes/login")
 app.use('/',loginRoute)
 
 const textRoute = require("./routes/text")
-app.use('/text',textRoute)
+app.use('/main',textRoute)
