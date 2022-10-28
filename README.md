@@ -2,14 +2,17 @@
 
 My attempt to create a Live Text Editor without any  tutorials (ofc I use documentation etc.)
 
+DONE :
+
+ - login screen (just selcting name)
+ 
+ - creating/joining to rooms
+ 
+ - rooms are added on the left side of the site
+ 
+
 TO DO: 
 
-Setup node.js / express ✅
-
-Create ejs view ✅
-
-Multiple Files at the left side
-
-add socket io to, make it working ✅
-
-saving files in cookies
+  - load last rooms
+  
+  - and saving everything to mysql database
